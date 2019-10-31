@@ -17,32 +17,45 @@ public class DuplicateRemover {
 
     public void remove(String dataFile) throws IOException {
         String line = "";
-        FileInputStream fileByteStream = new FileInputStream(dataFile);
-        inFS = new Scanner(fileByteStream);
 
         try {
-            while (line != null) {
-                line = inFS.next();
-                if (!uniqueWords.contains(line)) {
-                    uniqueWords.add(line);
+            FileInputStream fileByteStream = new FileInputStream(dataFile);
+            inFS = new Scanner(fileByteStream);
+
+            try{
+                while (line != null) {
+                    line = inFS.next();
+                    if (!uniqueWords.contains(line)) {
+                        uniqueWords.add(line);
+                    }
                 }
+            } catch (Exception e) {
+                //Reached the end of the file
             }
-        } catch (Exception e) {
-            //System.out.println("EXCEPTION");
+
+            fileByteStream.close();
+
+        }catch(IOException closeExcpt){
+            System.out.println("Error closing file: " + closeExcpt.getMessage());
+            System.exit(0);
         }
-        fileByteStream.close();
     }
 
     public void write(String outputFile) throws IOException {
-        FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
-        outFS = new PrintWriter(outputFile);
+        try{
+            FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
+            outFS = new PrintWriter(outputFile);
+            for (int i = 0; i < uniqueWords.size(); i++) {
+                outFS.println(uniqueWords.get(i));
+                outFS.flush();
+            }
+            outFS.close();
+            uniqueWords.clear();
+            fileByteStream2.close();
 
-        for (int i = 0; i < uniqueWords.size(); i++) {
-            outFS.println(uniqueWords.get(i));
-            outFS.flush();
+        }catch(IOException closeExcpt){
+            System.out.println("Error closing file: " + closeExcpt.getMessage());
+            System.exit(0);
         }
-        outFS.close();
-        uniqueWords.clear();
-        fileByteStream2.close();
     }
 }

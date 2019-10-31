@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="658f657a-7ff8-4c84-9c71-9774d1a28893" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/DuplicateRemover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/DuplicateRemover.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/problem1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/problem1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cruzfalquez_p1/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cruzfalquez_p1/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cruzfalquez_p1/DuplicateRemover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cruzfalquez_p1/DuplicateRemover.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unique_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/unique_words.txt" afterDir="false" />
     </list>
