@@ -13,33 +13,36 @@ import java.io.PrintWriter;
 public class DuplicateRemover {
     Scanner inFS;
     PrintWriter outFS; // Output stream
-    ArrayList<String> uniqueWords = new ArrayList <String>();
+    ArrayList<String> uniqueWords = new ArrayList<String>();
 
-     public void remove (FileInputStream dataFile){
+    public void remove(String dataFile) throws IOException {
         String line = "";
-        inFS = new Scanner(dataFile);
+        FileInputStream fileByteStream = new FileInputStream(dataFile);
+        inFS = new Scanner(fileByteStream);
 
-        try{
-            while(line != null){
+        try {
+            while (line != null) {
                 line = inFS.next();
-                if(!uniqueWords.contains(line)){
+                if (!uniqueWords.contains(line)) {
                     uniqueWords.add(line);
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             //System.out.println("EXCEPTION");
         }
-
+        fileByteStream.close();
     }
 
-    public void write (FileOutputStream outputFile) {
+    public void write(String outputFile) throws IOException {
+        FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
         outFS = new PrintWriter(outputFile);
 
-        for(int i = 0; i< uniqueWords.size(); i++){
+        for (int i = 0; i < uniqueWords.size(); i++) {
             outFS.println(uniqueWords.get(i));
             outFS.flush();
         }
         outFS.close();
+        uniqueWords.clear();
+        fileByteStream2.close();
     }
-
 }

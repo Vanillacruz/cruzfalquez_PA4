@@ -14,13 +14,8 @@ public class Application {
     public static void main(String[] args) throws IOException {
         DuplicateRemover duplicateRemover = new DuplicateRemover();
 
-        FileInputStream fileByteStream = new FileInputStream("problem1.txt");
-        FileOutputStream fileByteStream2 = new FileOutputStream("unique_words.txt");
+        duplicateRemover.remove("problem1.txt");
+        duplicateRemover.write("unique_words.txt");
 
-        duplicateRemover.remove(fileByteStream);
-        duplicateRemover.write(fileByteStream2);
-
-        fileByteStream.close();
-        fileByteStream2.close();
     }
 }
