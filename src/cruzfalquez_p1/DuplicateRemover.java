@@ -5,20 +5,41 @@
 */
 package cruzfalquez_p1;
 
-/* Create a utility class called DuplicateRemover.
-Create an instance method called remove that takes a single parameter called dataFile (representing the path to a text file)
-and uses a Set of Strings to eliminate duplicate words from dataFile.
-The unique words should be stored in an instance variable called uniqueWords.
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.PrintWriter;
 
-Create an instance method called write that takes a single parameter called outputFile (representing the path to a text file)
-and writes the words contained in uniqueWords to the file pointed to by outputFile.
-The output file should be overwritten if it already exists, and created if it does not exist.
-
-*/
 public class DuplicateRemover {
+    Scanner inFS;
+    PrintWriter outFS; // Output stream
+    ArrayList<String> uniqueWords = new ArrayList <String>();
 
-    //method called remove
+     public void remove (FileInputStream dataFile){
+        String line = "";
+        inFS = new Scanner(dataFile);
 
-    //method called write
+        try{
+            while(line != null){
+                line = inFS.next();
+                if(!uniqueWords.contains(line)){
+                    uniqueWords.add(line);
+                }
+            }
+        }catch(Exception e){
+            //System.out.println("EXCEPTION");
+        }
+
+    }
+
+    public void write (FileOutputStream outputFile) {
+        outFS = new PrintWriter(outputFile);
+
+        for(int i = 0; i< uniqueWords.size(); i++){
+            outFS.println(uniqueWords.get(i));
+            outFS.flush();
+        }
+        outFS.close();
+    }
 
 }

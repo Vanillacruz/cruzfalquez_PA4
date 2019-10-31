@@ -5,12 +5,22 @@
 */
 package cruzfalquez_p1;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Application {
-    //Create a separate class called Application that contains a main method which illustrates the use of DuplicateRemover
-    // by calling both the remove and write methods.
-    // Your input file must be called problem1.txt and your output file must be called unique_words.txt.
-    public static void main(String[] args) {
 
+    public static void main(String[] args) throws IOException {
+        DuplicateRemover duplicateRemover = new DuplicateRemover();
+
+        FileInputStream fileByteStream = new FileInputStream("problem1.txt");
+        FileOutputStream fileByteStream2 = new FileOutputStream("unique_words.txt");
+
+        duplicateRemover.remove(fileByteStream);
+        duplicateRemover.write(fileByteStream2);
+
+        fileByteStream.close();
+        fileByteStream2.close();
     }
-
 }
