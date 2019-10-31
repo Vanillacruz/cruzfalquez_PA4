@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="658f657a-7ff8-4c84-9c71-9774d1a28893" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/DuplicateRemover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p1/DuplicateRemover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/problem1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cruzfalquez_p1/DuplicateRemover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cruzfalquez_p1/DuplicateRemover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unique_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/unique_words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p2/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p2/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p2/DuplicateCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cruzfalquez_PA4/cruzfalquez_p2/DuplicateCounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cruzfalquez_p2/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cruzfalquez_p2/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cruzfalquez_p2/DuplicateCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cruzfalquez_p2/DuplicateCounter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +51,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Application (1)">
+    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cruzfalquez_p2.Application" />
+      <module name="cruzfalquez_PA4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cruzfalquez_p2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cruzfalquez_p1.Application" />
       <module name="cruzfalquez_PA4" />
@@ -67,6 +80,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Application (1)" />
         <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>

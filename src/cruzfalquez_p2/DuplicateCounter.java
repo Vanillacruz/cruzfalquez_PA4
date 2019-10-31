@@ -5,13 +5,66 @@
 */
 package cruzfalquez_p2;
 
-/*Create a utility class called DuplicateCounter.
-Create an instance method called count that takes a single parameter called dataFile (representing the path to a text file)
-and uses a Map of Strings to count how many times each word occurs in dataFile.
-The counts should be stored in an instance variable called wordCounter.
-Create an instance method called write that takes a single parameter called outputFile (representing the path to a text file)
-and writes the contents of wordCounter to the file pointed to by outputFile.
-The output file should be overwritten if it already exists, and created if it does not exist. */
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
+//uses a Map of Strings to count how many times each word occurs in dataFile.
 public class DuplicateCounter {
+    //The counts should be stored in an instance variable called wordCounter.
+    int wordCounter;
+    Scanner inFS;
+    PrintWriter outFS;
+    ArrayList<String> uniqueWords = new ArrayList<String>();
+    Map<String, Integer> map = new HashMap<String, Integer>();
+
+    public void count(String dataFile) throws IOException {
+        String line = "";
+
+        try {
+            FileInputStream fileByteStream = new FileInputStream(dataFile);
+            inFS = new Scanner(fileByteStream);
+
+            try{
+                while (line != null) {
+                    line = inFS.next();
+                    if (!uniqueWords.contains(line)) {
+                        uniqueWords.add(line);
+                        map.put(line, wordCounter);
+                    }
+                }
+            } catch (Exception e) {
+                //Reached the end of the file
+            }
+
+            fileByteStream.close();
+
+        }catch(IOException closeExcpt){
+            System.out.println("Error closing file: " + closeExcpt.getMessage());
+            System.exit(0);
+        }
+    }
+
+    //writes the contents of wordCounter to the file pointed to by outputFile.
+    public void write(String outputFile) throws IOException {
+        try{
+            FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
+            outFS = new PrintWriter(outputFile);
+            outFS.println(wordCounter);
+            outFS.flush();
+            outFS.close();
+
+            map.clear();
+            fileByteStream2.close();
+
+        }catch(IOException closeExcpt){
+            System.out.println("Error closing file: " + closeExcpt.getMessage());
+            System.exit(0);
+        }
+    }
 }
