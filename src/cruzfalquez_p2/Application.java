@@ -5,11 +5,9 @@
 */
 package cruzfalquez_p2;
 
-import java.io.IOException;
-
 public class Application {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         DuplicateCounter duplicateCounter = new DuplicateCounter();
 
         duplicateCounter.count("problem2.txt");

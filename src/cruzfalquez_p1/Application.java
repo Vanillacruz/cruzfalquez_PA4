@@ -5,13 +5,9 @@
 */
 package cruzfalquez_p1;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 public class Application {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         DuplicateRemover duplicateRemover = new DuplicateRemover();
 
         duplicateRemover.remove("problem1.txt");

@@ -9,60 +9,59 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-//uses a Map of Strings to count how many times each word occurs in dataFile.
 public class DuplicateCounter {
-    //The counts should be stored in an instance variable called wordCounter.
-    int wordCounter;
-    Scanner inFS;
-    PrintWriter outFS;
-    ArrayList<String> uniqueWords = new ArrayList<String>();
-    Map<String, Integer> map = new HashMap<String, Integer>();
 
-    public void count(String dataFile) throws IOException {
-        String line = "";
+    Map<String, Integer> wordCounter = new HashMap<String, Integer>();
+
+    //Counts the number of times each word occurs in the input file
+    public void count(String dataFile) {
+        String word = "";
 
         try {
             FileInputStream fileByteStream = new FileInputStream(dataFile);
-            inFS = new Scanner(fileByteStream);
+            Scanner inFS = new Scanner(fileByteStream);
 
-            try{
-                while (line != null) {
-                    line = inFS.next();
-                    if (!uniqueWords.contains(line)) {
-                        uniqueWords.add(line);
-                        map.put(line, wordCounter);
-                    }
+            //loops until end of file is reached
+            while (inFS.hasNext()) {
+                word = inFS.next();
+
+                //updates number of times word is found
+                if (wordCounter.get(word) == null) {
+                    wordCounter.put(word, 1);
+                } else {
+                    wordCounter.put(word, wordCounter.get(word) + 1);
                 }
-            } catch (Exception e) {
-                //Reached the end of the file
             }
 
             fileByteStream.close();
 
-        }catch(IOException closeExcpt){
+        } catch (IOException closeExcpt) {
             System.out.println("Error closing file: " + closeExcpt.getMessage());
             System.exit(0);
         }
     }
 
-    //writes the contents of wordCounter to the file pointed to by outputFile.
-    public void write(String outputFile) throws IOException {
-        try{
+    public void write(String outputFile) {
+        try {
             FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
-            outFS = new PrintWriter(outputFile);
-            outFS.println(wordCounter);
-            outFS.flush();
-            outFS.close();
+            PrintWriter outFS = new PrintWriter(outputFile);
 
-            map.clear();
+            //Writes data to the file
+            for (String key : wordCounter.keySet()) {
+                outFS.println(wordCounter.get(key) + " \t" + key);
+                outFS.flush();
+            }
+
+            //cleans up resources
+            outFS.close();
+            wordCounter.clear();
             fileByteStream2.close();
 
-        }catch(IOException closeExcpt){
+        } catch (IOException closeExcpt) {
             System.out.println("Error closing file: " + closeExcpt.getMessage());
             System.exit(0);
         }

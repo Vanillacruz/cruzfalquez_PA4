@@ -11,49 +11,48 @@ import java.util.Scanner;
 import java.io.PrintWriter;
 
 public class DuplicateRemover {
-    Scanner inFS;
-    PrintWriter outFS; // Output stream
     ArrayList<String> uniqueWords = new ArrayList<String>();
 
-    public void remove(String dataFile) throws IOException {
+    public void remove(String dataFile) {
         String line = "";
 
         try {
             FileInputStream fileByteStream = new FileInputStream(dataFile);
-            inFS = new Scanner(fileByteStream);
+            Scanner inFS = new Scanner(fileByteStream);
 
-            try{
-                while (line != null) {
-                    line = inFS.next();
-                    if (!uniqueWords.contains(line)) {
-                        uniqueWords.add(line);
-                    }
+            //reads words into an arrayList without duplicates
+            while (inFS.hasNext()) {
+                line = inFS.next();
+                if (!uniqueWords.contains(line)) {
+                    uniqueWords.add(line);
                 }
-            } catch (Exception e) {
-                //Reached the end of the file
             }
 
             fileByteStream.close();
 
-        }catch(IOException closeExcpt){
+        } catch (IOException closeExcpt) {
             System.out.println("Error closing file: " + closeExcpt.getMessage());
             System.exit(0);
         }
     }
 
-    public void write(String outputFile) throws IOException {
-        try{
+    public void write(String outputFile) {
+        try {
             FileOutputStream fileByteStream2 = new FileOutputStream(outputFile);
-            outFS = new PrintWriter(outputFile);
+            PrintWriter outFS = new PrintWriter(outputFile);
+
+            //prints words to output file
             for (int i = 0; i < uniqueWords.size(); i++) {
                 outFS.println(uniqueWords.get(i));
                 outFS.flush();
             }
+
+            //cleans up resources allocated
             outFS.close();
             uniqueWords.clear();
             fileByteStream2.close();
 
-        }catch(IOException closeExcpt){
+        } catch (IOException closeExcpt) {
             System.out.println("Error closing file: " + closeExcpt.getMessage());
             System.exit(0);
         }
